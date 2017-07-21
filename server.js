@@ -3,7 +3,7 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
-var session = require("express-session");
+var session = require("cookie-session");
 var cookieParser = require("cookie-parser")();
 
 var app = express();
