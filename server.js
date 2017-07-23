@@ -3,14 +3,15 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
-var session = require("cookie-session");
+var session = require("express-session");
 var cookieParser = require("cookie-parser")();
+var RedisStore = require("connect-redis")(session);
 
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./static")));
-app.use(session({secret: "ozziejetter", resave: true, saveUninitialized: true}));
+app.use(session({secret: "ozziejetter", resave: true, saveUninitialized: true, name: "supersession", store: new RedisStore()}));
 app.use(cookieParser);
 
 app.set("views", path.join(__dirname, "./client/views"));
