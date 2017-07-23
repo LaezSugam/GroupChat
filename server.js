@@ -29,7 +29,7 @@ app.set("view engine", "ejs");
 require("./server/config/routes.js")(app);
 
 //--------------------LISTEN-----------------
-var server = app.listen(process.env.PORT || 5000);
+var server = app.listen(process.env.PORT || 8000);
 
 //----------------------SOCKETS---------------------------
 
